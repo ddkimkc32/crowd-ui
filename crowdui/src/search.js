@@ -77,7 +77,7 @@ export default class Searchbar extends Component {
         //   <div>
         //     <input onChange={this.handleChange} />
         //     {/* <button onclick={this.search(event.target.value)}>
-        //         Searcheses
+        //         Searcheses change me
         //     </button> */}
         //     {card}
         //   </div>
