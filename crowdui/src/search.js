@@ -15,10 +15,11 @@ export default class Searchbar extends Component {
             searchResults: []
         }
     }
+
     handleChange = event => {
       this.q = event.target.value
       fetch('/search', {
-        method: 'POST', 
+        method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
             "track_id" : this.q
@@ -31,10 +32,10 @@ export default class Searchbar extends Component {
             artists.push(element.artist)
             results.push(      
             <List.Item key={element.id}>
-            <List.Item.Meta
-                
+            <List.Item.Meta      
                 avatar={<Avatar shape='square' size='large' src={element.imgurl} />}
                 title={<p href="https://ant.design">{element.name}</p>}
+                // id={<p href="https://ant.design">{element.id}</p>}
                 description={artists.join(', ')}
             />
             </List.Item>);
@@ -53,9 +54,24 @@ export default class Searchbar extends Component {
     render() {
         let card;
         if(this.state.searchResults.length > 0){
-            card = <Card>
+            card = <Card id='card' onClick={() => {
+              // fetch('/getToken', {
+              //   method: 'GET',
+              //   body: JSON.stringify({
+              //     "track_id": this.state.searchResults.element.name
+              //   }),
+              // })
+              console.log(this.state.searchResults.title)
+              // const searchTracksReset = () => ({ type: this.SEARCH_TRACKS_RESET });
+              // const fetchTrack = id => ({ type: this.FETCH_TRACK, id });
+              // const fetchTrackSuccess = (id, track) => ({
+              //   type: this.FETCH_TRACK_SUCCESS,
+              //   id
+              // });
+              //console.log(fetchTrackSuccess)
+            }}>
             <List itemLayout="horizontal">
-            {this.state.searchResults}
+              {this.state.searchResults}
             </List>
             </Card>;
         }
@@ -64,7 +80,7 @@ export default class Searchbar extends Component {
         }
       return (
         <div className="Search">
-        <h1> Sch </h1>
+        <h1> Crowdify </h1>
         <Search
           placeholder="input search text"
           enterButton="Search"

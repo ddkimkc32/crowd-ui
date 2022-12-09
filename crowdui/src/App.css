@@ -46,3 +46,7 @@ div, button {
     transform: rotate(360deg);
   }
 }
+
+.card {
+  color: #61dafb;
+}
