@@ -3,6 +3,7 @@ import {Card} from 'antd';
 import { Input, List, Avatar } from 'antd';
 import "./App.css"
 import 'antd/dist/antd.css';
+import AddButton from './addButton';
 import { resolveOnChange } from 'antd/lib/input/Input';
 
 const { Search } = Input;
@@ -30,12 +31,15 @@ export default class Searchbar extends Component {
             let artists = []
             artists.push(element.artist)
             results.push(      
-            <List.Item key={element.id}>
+            <List.Item key={element.id}
+            // actions={<addButton track_id={element.id}> Add</addButton>}
+            actions={[<AddButton uri={element.uri} track_id={element.id} song={element.name} artist={element.artist} img={element.imgurl}>Add </AddButton>]}
+            >
             <List.Item.Meta
-                
                 avatar={<Avatar shape='square' size='large' src={element.imgurl} />}
                 title={<p href="https://ant.design">{element.name}</p>}
                 description={artists.join(', ')}
+
             />
             </List.Item>);
         });
@@ -64,7 +68,7 @@ export default class Searchbar extends Component {
         }
       return (
         <div className="Search">
-        <h1> Sch </h1>
+        <h1> Search </h1>
         <Search
           placeholder="input search text"
           enterButton="Search"
@@ -73,16 +77,6 @@ export default class Searchbar extends Component {
         />
         {card}
       </div>
-        // <div className="component-search-input">
-        //   <div>
-        //     <input onChange={this.handleChange} />
-        //     {/* <button onclick={this.search(event.target.value)}>
-        //         Searcheses change me
-        //     </button> */}
-        //     {card}
-        //   </div>
-         
-        // </div>
       );
     }
   }
