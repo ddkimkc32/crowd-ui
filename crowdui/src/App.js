@@ -16,9 +16,10 @@ function App() {
   return (
     
     <main className="App">
-      <Login />
       <Searchbar />
       <Queue />
+      <Login />
+     
 
     </main>
   );

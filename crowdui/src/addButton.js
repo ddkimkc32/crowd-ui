@@ -17,6 +17,7 @@ export default class AddButton extends Component{
             "artist": this.props.artist
         })
        })
+      
        
     }
     render(){
